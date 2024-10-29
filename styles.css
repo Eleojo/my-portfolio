@@ -5,51 +5,40 @@ body {
     background-color: var(--background-color, #fff);
 }
 
-.nav {
-    background-color: var(--primary);
-    color: white;
-    padding: 1rem;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-content a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.header {
+    text-align: center;
     padding: 2rem;
+    background: var(--primary);
     color: white;
 }
 
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-top: 1rem;
+.contact-info a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
 .section {
     padding: 2rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h2 {
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+.about-text {
+    margin: 1rem 0;
+    text-align: center;
 }
 
 .skills-grid, .project-grid, .education-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1rem;
 }
 
@@ -65,6 +54,12 @@ h2 {
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.project-card:hover, .education-card:hover {
+    transform: translateY(-5px);
 }
 
 .project-card img, .education-card img {
@@ -78,6 +73,7 @@ h2 {
 
 .project-links {
     margin-top: 1rem;
+    text-align: center;
 }
 
 .btn {
@@ -86,10 +82,6 @@ h2 {
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 5px;
-}
-
-.btn-secondary {
-    background-color: #a363d8;
 }
 
 footer {

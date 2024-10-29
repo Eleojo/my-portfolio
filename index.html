@@ -3,135 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- React and ReactDOM -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    <title>Eleojo Emmanuel Adegbe - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <div id="root"></div>
-    
-    <script type="text/babel">
-        const portfolioConfig = {
-            name: "Eleojo Emmanuel Adegbe",
-            title: "Backend Developer / Machine Learning Expert",
-            email: "adegbeeleojo@gmail.com",
-            github: "https://github.com/Eleojo",
-            linkedin: "https://www.linkedin.com/in/eleojoadegbe",
-            about: {
-                description: `I'm a dedicated software engineer with a strong passion for machine learning and cutting-edge technologies.
-                I specialize in building intelligent systems that leverage data-driven insights to solve complex problems, and I thrive on creating innovative software solutions.`,
-                skills: ["Software Engineering", "C#", ".NET", "Git", "Machine Learning", "Deep Learning", "Python", "TensorFlow"]
-            },
-            projects: [
-                {
-                    title: "ECommerce Backend Solution",
-                    description: "A robust e-commerce backend system using ASP.NET, featuring user authentication with JWT, role-based access control, and comprehensive order and product management. The system integrates a scalable API architecture, enabling smooth operations for shopping carts, orders, and inventory management.",
-                    image: "images/Screenshot 2024-07-09 091930.png",
-                    github: "https://github.com/Eleojo/ECommerseBackendAPIs"
-                },
-                {
-                    title: "Face Recognition Attendance Management System",
-                    description: "I developed a face recognition attendance management system that leverages computer vision to automate the process of tracking attendance. Using real-time image processing, the system accurately identifies individuals, logs attendance, and improves efficiency by reducing manual entry errors.",
-                    image: "images/Screenshot 2024-10-29 110445.png",
-                    github: "https://github.com/Eleojo/Face-Regconition-Attendance-System"
-                }
-            ],
-            education: [
-                {
-                    degree: "Bachelor's Degree in Computer Engineering",
-                    institution: "Ahmadu Bello University",
-                    year: "2023",
-                    image: "images/images/GMNSE.jpg" // Placeholder for graduation image
-                },
-                {
-                    degree: "Nigerian Society of Engineers Certificate",
-                    institution: "NSE",
-                    year: "2024",
-                    image: "images/NSE_Certificate.png" // Placeholder for NSE certificate
-                },
-                {
-                    degree: "Statement of Result",
-                    institution: "Ahmadu Bello University",
-                    year: "2023",
-                    image: "images/Statement_OF_Result.jpg" // Placeholder for exemption letter
-                }
-            ],
-            theme: {
-                primaryColor: "#6c5ce7",
-                secondaryColor: "#a363d8",
-                backgroundColor: "#ffffff",
-                textColor: "#333333"
-            }
-        };
-
-        const App = () => {
-            const { name, title, about, projects, education, theme } = portfolioConfig;
-            
-            return (
-                <div style={{ '--primary': theme.primaryColor }}>
-                    <header className="header">
-                        <h1>{name}</h1>
-                        <h2>{title}</h2>
-                        <div className="contact-info">
-                            <a href={`mailto:${portfolioConfig.email}`}>Email Me</a>
-                            <a href={portfolioConfig.github}>GitHub</a>
-                            <a href={portfolioConfig.linkedin}>LinkedIn</a>
-                        </div>
-                    </header>
-
-                    <section id="about" className="section about-section">
-                        <h2>About Me</h2>
-                        <p className="about-text">{about.description}</p>
-                        <h3>Skills</h3>
-                        <div className="skills-grid">
-                            {about.skills.map((skill, index) => (
-                                <div key={index} className="skill-tag">{skill}</div>
-                            ))}
-                        </div>
-                    </section>
-
-                    <section id="projects" className="section projects-section">
-                        <h2>My Projects</h2>
-                        <div className="project-grid">
-                            {projects.map((project, index) => (
-                                <div key={index} className="project-card">
-                                    <img src={project.image} alt={project.title} />
-                                    <div className="project-content">
-                                        <h3>{project.title}</h3>
-                                        <p>{project.description}</p>
-                                        <div className="project-links">
-                                            <a href={project.github} className="btn">View on GitHub</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    <section id="education" className="section education-section">
-                        <h2>My Education</h2>
-                        <div className="education-grid">
-                            {education.map((edu, index) => (
-                                <div key={index} className="education-card">
-                                    <img src={edu.image} alt={edu.degree} />
-                                    <h3>{edu.degree}</h3>
-                                    <p>{edu.institution} ({edu.year})</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    <footer>
-                        <p>© {new Date().getFullYear()} {name}. All rights reserved.</p>
-                    </footer>
+    <div class="min-h-screen bg-gray-50">
+        <!-- Hero Section -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <div class="container mx-auto px-6 py-24 text-center">
+                <img src="images/your_picture.jpg" alt="Eleojo Emmanuel Adegbe" class="w-32 h-32 rounded-full mx-auto mb-6" />
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Eleojo Emmanuel Adegbe</h1>
+                <p class="text-xl md:text-2xl mb-8">Backend Developer / Machine Learning Expert</p>
+                <div class="flex justify-center gap-6">
+                    <a href="mailto:adegbeeleojo@gmail.com" class="hover:text-blue-200 transition-colors">Email</a>
+                    <a href="https://github.com/Eleojo" class="hover:text-blue-200 transition-colors">GitHub</a>
+                    <a href="https://www.linkedin.com/in/eleojoadegbe" class="hover:text-blue-200 transition-colors">LinkedIn</a>
                 </div>
-            );
-        };
+            </div>
+        </div>
 
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
+        <!-- About Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+                <p class="text-lg text-gray-700 mb-12 text-center">
+                    I'm a dedicated software engineer with a strong passion for machine learning and cutting-edge technologies.
+                    I specialize in building intelligent systems that leverage data-driven insights to solve complex problems,
+                    and I thrive on creating innovative software solutions.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">Software Engineering</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">C#</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">.NET</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">Git</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">Machine Learning</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">Deep Learning</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">Python</div>
+                    <div class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-shadow">TensorFlow</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="bg-white py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="images/Screenshot 2024-07-09 091930.png" alt="ECommerce Backend Solution" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">ECommerce Backend Solution</h3>
+                            <p class="text-gray-600 mb-4">A robust e-commerce backend system using ASP.NET, featuring user authentication with JWT, role-based access control, and comprehensive order and product management.</p>
+                            <a href="https://github.com/Eleojo/ECommerseBackendAPIs" class="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">View Project</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="images/Screenshot 2024-10-29 110445.png" alt="Face Recognition Attendance Management System" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Face Recognition Attendance Management System</h3>
+                            <p class="text-gray-600 mb-4">Developed a face recognition attendance management system that leverages computer vision to automate the process of tracking attendance.</p>
+                            <a href="https://github.com/Eleojo/Face-Regconition-Attendance-System" class="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="images/Statement_OF_Result.jpg" alt="Bachelor's Degree in Computer Engineering" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Bachelor's Degree in Computer Engineering</h3>
+                            <p class="text-gray-600">Ahmadu Bello University</p>
+                            <p class="text-gray-500">2023</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="images/NSE_Certificate.png" alt="Nigerian Society of Engineers Certificate" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Nigerian Society of Engineers Certificate</h3>
+                            <p class="text-gray-600">NSE</p>
+                            <p class="text-gray-500">2024</p>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                        <img src="images/GMNSE.jpg" alt="Statement of Result" class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold mb-2">Statement of Result</h3>
+                            <p class="text-gray-600">Ahmadu Bello University</p>
+                            <p class="text-gray-500">2023</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-8">
+            <div class="container mx-auto px-6 text-center">
+                <p>© 2024 Eleojo Emmanuel Adegbe. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

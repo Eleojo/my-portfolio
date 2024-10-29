@@ -112,6 +112,44 @@
                 </div>
             </div>
         </section>
+          <!-- Slideshow Gallery Section -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">My Work Gallery</h2>
+                <div class="relative overflow-hidden max-w-full mx-auto">
+                    <!-- Slider Container -->
+                    <div id="gallery" class="flex transition-transform duration-500">
+                        <!-- Slide 1 -->
+                        <div class="min-w-full">
+                            <img src="images/project1.png" alt="Project 1" class="w-full h-auto object-cover" />
+                            <div class="p-4 text-center">
+                                <h3 class="text-xl font-bold">Project 1</h3>
+                                <p class="text-gray-600">Description of project 1</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="min-w-full">
+                            <img src="images/project2.png" alt="Project 2" class="w-full h-auto object-cover" />
+                            <div class="p-4 text-center">
+                                <h3 class="text-xl font-bold">Project 2</h3>
+                                <p class="text-gray-600">Description of project 2</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="min-w-full">
+                            <img src="images/project3.png" alt="Project 3" class="w-full h-auto object-cover" />
+                            <div class="p-4 text-center">
+                                <h3 class="text-xl font-bold">Project 3</h3>
+                                <p class="text-gray-600">Description of project 3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-full">Prev</button>
+                    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 text-white px-4 py-2 rounded-full">Next</button>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer class="bg-gray-800 text-white py-8">
@@ -120,5 +158,29 @@
             </div>
         </footer>
     </div>
+     <!-- JavaScript for the gallery -->
+    <script>
+        const gallery = document.getElementById('gallery');
+        let currentIndex = 0;
+
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        const totalSlides = gallery.children.length;
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateGallery();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateGallery();
+        });
+
+        function updateGallery() {
+            gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
 </body>
 </html>

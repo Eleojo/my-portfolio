@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <!-- React and ReactDOM -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
@@ -12,12 +13,120 @@
 <body>
     <div id="root"></div>
     
-    <!-- Load your configuration and components -->
-    <script type="text/babel" src="config.js"></script>
-    <script type="text/babel" src="App.js"></script>
-    
-    <!-- Initialize your app -->
     <script type="text/babel">
+        // Inline the config to avoid module loading issues
+        const portfolioConfig = {
+            name: "Your Name",
+            title: "Web Developer & Designer",
+            email: "your.email@example.com",
+            github: "https://github.com/yourusername",
+            linkedin: "https://linkedin.com/in/yourusername",
+            about: {
+                description: `I'm a passionate web developer with expertise in React, Node.js, and modern web technologies.
+                I love creating beautiful and functional websites that solve real-world problems.`,
+                skills: ["React", "JavaScript", "HTML/CSS", "Node.js", "Git"]
+            },
+            projects: [
+                {
+                    title: "Project One",
+                    description: "Description of your first project.",
+                    image: "/api/placeholder/300/200",
+                    link: "https://project-link.com",
+                    github: "https://github.com/yourusername/project-one"
+                },
+                {
+                    title: "Project Two",
+                    description: "Description of your second project.",
+                    image: "/api/placeholder/300/200",
+                    link: "https://project-link.com",
+                    github: "https://github.com/yourusername/project-two"
+                }
+            ],
+            theme: {
+                primaryColor: "#6c5ce7",
+                secondaryColor: "#a363d8",
+                backgroundColor: "#ffffff",
+                textColor: "#333333"
+            }
+        };
+
+        // Include App component code directly
+        const App = () => {
+            const { name, title, about, projects, theme } = portfolioConfig;
+            
+            return (
+                <div style={{ '--primary': theme.primaryColor }}>
+                    <nav className="nav">
+                        <div className="nav-content">
+                            <h1>{name}</h1>
+                            <div>
+                                <a href="#about">About</a>
+                                <a href="#projects">Projects</a>
+                                <a href="#contact">Contact</a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <section id="hero" className="section" 
+                        style={{
+                            background: `linear-gradient(135deg, ${theme.primaryColor}, ${theme.secondaryColor})`
+                        }}>
+                        <h1 className="hero-title">{name}</h1>
+                        <p className="hero-subtitle">{title}</p>
+                    </section>
+
+                    <section id="about" className="section">
+                        <h2>About Me</h2>
+                        <p className="about-text">{about.description}</p>
+                        <div className="skills-grid">
+                            {about.skills.map((skill, index) => (
+                                <div key={index} className="skill-tag">{skill}</div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="projects" className="section">
+                        <h2>My Projects</h2>
+                        <div className="project-grid">
+                            {projects.map((project, index) => (
+                                <div key={index} className="project-card">
+                                    <img src={project.image} alt={project.title} />
+                                    <div className="project-content">
+                                        <h3>{project.title}</h3>
+                                        <p>{project.description}</p>
+                                        <div className="project-links">
+                                            <a href={project.link} className="btn">View Project</a>
+                                            <a href={project.github} className="btn btn-secondary">GitHub</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section id="contact" className="section">
+                        <h2>Contact Me</h2>
+                        <div className="contact-links">
+                            <a href={`mailto:${portfolioConfig.email}`} className="btn">
+                                Email Me
+                            </a>
+                            <a href={portfolioConfig.github} className="btn btn-secondary">
+                                GitHub
+                            </a>
+                            <a href={portfolioConfig.linkedin} className="btn btn-secondary">
+                                LinkedIn
+                            </a>
+                        </div>
+                    </section>
+
+                    <footer>
+                        <p>© {new Date().getFullYear()} {name}. All rights reserved.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        // Render the app
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>

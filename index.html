@@ -8,54 +8,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="root"></div>
     
     <script type="text/babel">
-        // Inline the config to avoid module loading issues
         const portfolioConfig = {
             name: "Eleojo Emmanuel Adegbe",
-            title: "Backend Developer/ Machine Learning Expert",
+            title: "Backend Developer / Machine Learning Expert",
             email: "adegbeeleojo@gmail.com",
             github: "https://github.com/Eleojo",
-            linkedin: "www.linkedin.com/in/eleojoadegbe",
+            linkedin: "https://linkedin.com/in/eleojoadegbe",
             about: {
                 description: `I'm a dedicated software engineer with a strong passion for machine learning and cutting-edge technologies.
-                I specialize in building intelligent systems that leverage data-driven insights to solve complex problems, and I thrive on creating innovative software solutions.`,
-                skills: ["Software Engineering", "C#", ".NET", "Git","Machine Learning", "Deep Learning", "Python", "TensorFlow"]
+                I specialize in building intelligent systems that leverage data-driven insights to solve complex problems.`,
+                skills: ["Software Engineering", "C#", ".NET", "Git", "Machine Learning", "Deep Learning", "Python", "TensorFlow"]
             },
             projects: [
                 {
                     title: "ECommerce Backend Solution",
-                    description: "A robust e-commerce backend system using ASP.NET, featuring user authentication with JWT, role-based access control, and comprehensive order and product management. The system integrates a scalable API architecture, enabling smooth operations for shopping carts, orders, and inventory management.",
+                    description: "A robust e-commerce backend system using ASP.NET, featuring user authentication with JWT, role-based access control, and comprehensive order and product management.",
                     image: "images/Screenshot 2024-07-09 091930.png",
-                    //link: "https://project-link.com",
                     github: "https://github.com/Eleojo/ECommerseBackendAPIs"
                 },
                 {
-                    title: "Face Recognition attendance Management System",
-                    description: "I developed a face recognition attendance management system that leverages computer vision to automate the process of tracking attendance. Using real-time image processing, the system accurately identifies individuals, logs attendance, and improves efficiency by reducing manual entry errors.",
+                    title: "Face Recognition Attendance System",
+                    description: "A face recognition attendance management system that leverages computer vision to automate tracking attendance.",
                     image: "images/Screenshot 2024-10-29 110445.png",
-                    //link: "https://project-link.com",
                     github: "https://github.com/Eleojo/Face-Regconition-Attendance-System"
                 }
             ],
             theme: {
                 primaryColor: "#6c5ce7",
                 secondaryColor: "#a363d8",
-                backgroundColor: "#ffffff",
+                backgroundColor: "#f5f6fa",
                 textColor: "#333333"
             }
         };
 
-        // Include App component code directly
         const App = () => {
             const { name, title, about, projects, theme } = portfolioConfig;
             
             return (
-                <div style={{ '--primary': theme.primaryColor }}>
+                <div style={{ '--primary': theme.primaryColor, '--secondary': theme.secondaryColor }}>
                     <nav className="nav">
                         <div className="nav-content">
                             <h1>{name}</h1>
@@ -67,10 +68,7 @@
                         </div>
                     </nav>
 
-                    <section id="hero" className="section" 
-                        style={{
-                            background: `linear-gradient(135deg, ${theme.primaryColor}, ${theme.secondaryColor})`
-                        }}>
+                    <section id="hero" className="section" style={{ background: `linear-gradient(135deg, ${theme.primaryColor}, ${theme.secondaryColor})` }}>
                         <h1 className="hero-title">{name}</h1>
                         <p className="hero-subtitle">{title}</p>
                     </section>
@@ -94,9 +92,8 @@
                                     <div className="project-content">
                                         <h3>{project.title}</h3>
                                         <p>{project.description}</p>
-                                        <div className="project-links">
-                                            <a href={project.link} className="btn">View Project</a>
-                                            <a href={project.github} className="btn btn-secondary">GitHub</a>
+                                        <div className="btn">
+                                            <a href={project.github} className="btn">View on GitHub</a>
                                         </div>
                                     </div>
                                 </div>
@@ -104,29 +101,18 @@
                         </div>
                     </section>
 
-                    <section id="contact" className="section">
-                        <h2>Contact Me</h2>
-                        <div className="contact-links">
-                            <a href={`mailto:${portfolioConfig.email}`} className="btn">
-                                Email Me
-                            </a>
-                            <a href={portfolioConfig.github} className="btn btn-secondary">
-                                GitHub
-                            </a>
-                            <a href={portfolioConfig.linkedin} className="btn btn-secondary">
-                                LinkedIn
-                            </a>
-                        </div>
-                    </section>
-
                     <footer>
-                        <p>© {new Date().getFullYear()} {name}. All rights reserved.</p>
+                        <h2>Contact Me</h2>
+                        <p>Email: <a href={`mailto:${about.email}`} style={{ color: "#fff" }}>{about.email}</a></p>
+                        <div className="contact-links">
+                            <a href={portfolioConfig.github} style={{ color: "#fff" }}>GitHub</a>
+                            <a href={portfolioConfig.linkedin} style={{ color: "#fff" }}>LinkedIn</a>
+                        </div>
                     </footer>
                 </div>
             );
         };
 
-        // Render the app
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>

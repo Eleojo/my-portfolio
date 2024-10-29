@@ -116,12 +116,12 @@
         <section class="py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-12">My Gallery</h2>
-                <div class="relative overflow-hidden max-w-full mx-auto">
+                <div class="relative overflow-hidden max-w-lg mx-auto"> <!-- Max width reduced -->
                     <!-- Slider Container -->
                     <div id="gallery" class="flex transition-transform duration-500">
                         <!-- Slide 1 -->
                         <div class="min-w-full">
-                            <img src="images/SchoolDays.jpg" alt="Picture 1" class="w-full h-auto object-cover" />
+                            <img src="images/SchoolDays.jpg" alt="Picture 1" class="w-full h-64 object-cover" /> <!-- Reduced height -->
                             <div class="p-4 text-center">
                                 <h3 class="text-xl font-bold">School Days</h3>
                                 <p class="text-gray-600">Preparing for Machine Learning Exam</p>
@@ -129,7 +129,7 @@
                         </div>
                         <!-- Slide 2 -->
                         <div class="min-w-full">
-                            <img src="images/Sign_language.jpg" alt="Picture 2" class="w-full h-auto object-cover" />
+                            <img src="images/Sign_language.jpg" alt="Picture 2" class="w-full h-64 object-cover" />
                             <div class="p-4 text-center">
                                 <h3 class="text-xl font-bold">Sign Language Detection</h3>
                                 <p class="text-gray-600">Sign Language Detection with Python, Tensorflow and Jupyter Notebook. Used LabelImg for annotation</p>
@@ -137,14 +137,14 @@
                         </div>
                         <!-- Slide 3 -->
                         <div class="min-w-full">
-                            <img src="images/original_data.jpg" alt="Picture 3" class="w-full h-auto object-cover" />
+                            <img src="images/original_data.jpg" alt="Picture 3" class="w-full h-64 object-cover" />
                             <div class="p-4 text-center">
                                 <h3 class="text-xl font-bold">Data Augmentation</h3>
                                 <p class="text-gray-600">Result for Original Data before Augmentation</p>
                             </div>
                         </div>
                          <div class="min-w-full">
-                            <img src="images/CNN_perfomance.jpg" alt="Picture 4" class="w-full h-auto object-cover" />
+                            <img src="images/CNN_perfomance.jpg" alt="Picture 4" class="w-full h-64 object-cover" />
                             <div class="p-4 text-center">
                                 <h3 class="text-xl font-bold">Data Augmentation</h3>
                                 <p class="text-gray-600">Result for Augmented Data</p>
@@ -166,28 +166,33 @@
         </footer>
     </div>
      <!-- JavaScript for the gallery -->
-    <script>
-        const gallery = document.getElementById('gallery');
-        let currentIndex = 0;
+   <script>
+    const gallery = document.getElementById('gallery');
+    let currentIndex = 0;
+    const totalSlides = gallery.children.length;
 
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
 
-        const totalSlides = gallery.children.length;
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateGallery();
+    });
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            updateGallery();
-        });
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateGallery();
+    });
 
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-            updateGallery();
-        });
+    function updateGallery() {
+        gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
 
-        function updateGallery() {
-            gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-    </script>
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateGallery();
+    }, 3000); // Slide every 3 seconds
+</script>
 </body>
 </html>

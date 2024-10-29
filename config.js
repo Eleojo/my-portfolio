@@ -1,9 +1,9 @@
 // config.js
 export const portfolioConfig = {
   // Basic Information
-  name: "Your Name",
-  title: "Web Developer & Designer",
-  email: "your.email@example.com",
+  name: "Eleojo Emmanuel Adegbe",
+  title: "Backend Developer/ Machine Learning Expert",
+  email: "adegbeeleojo@gmail.com",
   
   // Social Links
   github: "https://github.com/yourusername",

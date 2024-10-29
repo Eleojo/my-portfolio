@@ -41,24 +41,23 @@
             ],
             education: [
                 {
-                    degree: "Bachelor's Degree in Computer Science",
+                    degree: "Bachelor's Degree in Computer Engineering",
                     institution: "Ahmadu Bello University",
                     year: "2023",
-                    image: "images/GMNSE.jpg" // Placeholder for graduation image
-                },
-                {
-                    degree: "Statement of Result",
-                    institution: "Ahmadu Bello University",
-                    year: "2023",
-                    image: "images/Statement_OF_Result.jpg" // Placeholder for exemption letter
+                    image: "images/images/GMNSE.jpg" // Placeholder for graduation image
                 },
                 {
                     degree: "Nigerian Society of Engineers Certificate",
                     institution: "NSE",
                     year: "2024",
                     image: "images/NSE_Certificate.png" // Placeholder for NSE certificate
+                },
+                {
+                    degree: "Statement of Result",
+                    institution: "Ahmadu Bello University",
+                    year: "2023",
+                    image: "images/Statement_OF_Result.jpg" // Placeholder for exemption letter
                 }
-                
             ],
             theme: {
                 primaryColor: "#6c5ce7",
@@ -73,30 +72,20 @@
             
             return (
                 <div style={{ '--primary': theme.primaryColor }}>
-                    <nav className="nav">
-                        <div className="nav-content">
-                            <h1>{name}</h1>
-                            <div>
-                                <a href="#about">About</a>
-                                <a href="#projects">Projects</a>
-                                <a href="#education">Education</a>
-                                <a href="#contact">Contact</a>
-                            </div>
+                    <header className="header">
+                        <h1>{name}</h1>
+                        <h2>{title}</h2>
+                        <div className="contact-info">
+                            <a href={`mailto:${portfolioConfig.email}`}>Email Me</a>
+                            <a href={portfolioConfig.github}>GitHub</a>
+                            <a href={portfolioConfig.linkedin}>LinkedIn</a>
                         </div>
-                    </nav>
+                    </header>
 
-                    <section id="hero" className="section hero-section" 
-                        style={{
-                            background: `linear-gradient(135deg, ${theme.primaryColor}, ${theme.secondaryColor})`
-                        }}>
-                        <h1 className="hero-title">{name}</h1>
-                        <p className="hero-subtitle">{title}</p>
-                        <img className="profile-image" src="images/profile_picture.jpg" alt="Profile" />
-                    </section>
-
-                    <section id="about" className="section">
+                    <section id="about" className="section about-section">
                         <h2>About Me</h2>
                         <p className="about-text">{about.description}</p>
+                        <h3>Skills</h3>
                         <div className="skills-grid">
                             {about.skills.map((skill, index) => (
                                 <div key={index} className="skill-tag">{skill}</div>
@@ -104,7 +93,7 @@
                         </div>
                     </section>
 
-                    <section id="projects" className="section">
+                    <section id="projects" className="section projects-section">
                         <h2>My Projects</h2>
                         <div className="project-grid">
                             {projects.map((project, index) => (
@@ -114,7 +103,7 @@
                                         <h3>{project.title}</h3>
                                         <p>{project.description}</p>
                                         <div className="project-links">
-                                            <a href={project.github} className="btn">GitHub</a>
+                                            <a href={project.github} className="btn">View on GitHub</a>
                                         </div>
                                     </div>
                                 </div>
@@ -122,7 +111,7 @@
                         </div>
                     </section>
 
-                    <section id="education" className="section">
+                    <section id="education" className="section education-section">
                         <h2>My Education</h2>
                         <div className="education-grid">
                             {education.map((edu, index) => (
@@ -132,15 +121,6 @@
                                     <p>{edu.institution} ({edu.year})</p>
                                 </div>
                             ))}
-                        </div>
-                    </section>
-
-                    <section id="contact" className="section">
-                        <h2>Contact Me</h2>
-                        <div className="contact-links">
-                            <a href={`mailto:${portfolioConfig.email}`} className="btn">Email Me</a>
-                            <a href={portfolioConfig.github} className="btn btn-secondary">GitHub</a>
-                            <a href={portfolioConfig.linkedin} className="btn btn-secondary">LinkedIn</a>
                         </div>
                     </section>
 

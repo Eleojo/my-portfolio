@@ -1,9 +1,31 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Content Manager</title>
-  </head>
-  <body>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to My Portfolio</h1>
+    <button id="login-btn">Login</button>
+
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        netlifyIdentity.init();
+
+        document.getElementById('login-btn').onclick = () => {
+            netlifyIdentity.open();
+        };
+
+        netlifyIdentity.on('login', user => {
+            console.log('User logged in:', user);
+            netlifyIdentity.close();
+        });
+
+        netlifyIdentity.on('logout', () => {
+            console.log('User logged out');
+        });
+    </script>
+</body>
 </html>

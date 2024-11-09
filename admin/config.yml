@@ -1,17 +1,29 @@
 backend:
   name: git-gateway
-  branch: main # Default branch for your repository
-
-media_folder: "images" # Folder to store images
-public_folder: "/images" # Path to access images in the front end
+  branch: main  # or whatever branch you want to use for editing content
+  
+media_folder: "images"  # where images will be uploaded
+public_folder: "/images"  # the folder to access images from the site
 
 collections:
-  - name: "portfolio" # Used in routes as /admin/collections/portfolio
-    label: "Portfolio" # Used in the UI
-    folder: "content/portfolio" # Directory for the content files
-    create: true # Allow users to create new entries
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename pattern
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
-      - { label: "Description", name: "description", widget: "text" }
+  - name: "about"  # collection for the About section
+    label: "About"
+    files:
+      - label: "About Me"
+        name: "about-me"
+        file: "_data/about-me.md"
+        fields:
+          - { name: "title", label: "Title", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+
+  - name: "projects"  # collection for the Projects section
+    label: "Projects"
+    files:
+      - label: "ECommerce Backend Solution"
+        name: "ecommerce-project"
+        file: "_data/ecommerce-project.md"
+        fields:
+          - { name: "title", label: "Project Title", widget: "string" }
+          - { name: "description", label: "Project Description", widget: "text" }
+          - { name: "link", label: "Project Link", widget: "string" }
+          - { name: "image", label: "Image", widget: "image" }

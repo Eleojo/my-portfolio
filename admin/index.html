@@ -8,5 +8,19 @@
 </head>
 <body>
     <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
+      <!-- Include the Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <script>
+        // Initialize Netlify Identity Widget
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('init', function(user) {
+                if (!user) {
+                    // Open the login modal if no user is logged in
+                    window.netlifyIdentity.open();
+                }
+            });
+        }
+    </script>
 </body>
 </html>

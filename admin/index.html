@@ -1,28 +1,15 @@
+<!-- admin/index.html -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Admin - Netlify CMS</title>
-    <link rel="stylesheet" href="https://unpkg.com/netlify-cms@2.10.0/dist/cms.css">
-  </head>
-  <body>
-    <script src="https://unpkg.com/netlify-cms@2.10.0/dist/cms.js"></script>
-  </body>
-</html>
-
-
-<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Netlify CMS</title>
-  <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.0.0/dist/netlify-cms.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Content Manager</title>
+    <script src="https://unpkg.com/netlify-cms@^2.10.0/dist/netlify-cms.js"></script>
 </head>
 <body>
-  <script>
-    CMS.init();
-  </script>
+    <!-- This is the main container for Netlify CMS -->
+    <script>
+        CMS.init({ config: '/admin/config.yml' });
+    </script>
 </body>
 </html>
- -->

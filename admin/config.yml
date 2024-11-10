@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: main  # or whatever branch you want to use for editing content
+  branch: master  # or whatever branch you want to use for editing content
   
 media_folder: "images"  # where images will be uploaded
 public_folder: "/images"  # the folder to access images from the site
